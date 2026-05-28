@@ -17,7 +17,6 @@ namespace ATM_Simulator {
     private readonly List<User> users;
     private User currentUser;
 
-    // Приватный конструктор (как в примере)
     private ATM() {
       users = new List<User>();
       // Добавляем тестовых пользователей
@@ -25,7 +24,6 @@ namespace ATM_Simulator {
       users.Add(new User("Никита", "54325289", "5267", 30000));
       users.Add(new User("Паша", "65424671", "1488", 100000));
     }
-
 
     public void Method1() {
       Console.WriteLine("ATM.Method1 - Банкомат готов к работе");

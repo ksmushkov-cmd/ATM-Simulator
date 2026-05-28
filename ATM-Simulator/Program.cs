@@ -3,9 +3,6 @@
 namespace ATM_Simulator {
   public class Program {
     private static void Main() {
-      Console.WriteLine("Нажмите Enter для запуска программы...");
-      _ = Console.ReadLine();
-
       Console.WriteLine("СИМУЛЯЦИЯ БАНКОМАТА\n");
 
       ATM.Instance.Method1();
@@ -13,7 +10,6 @@ namespace ATM_Simulator {
 
       Console.WriteLine("\nАВТОРИЗАЦИЯ");
 
-      // Вход в систему
       Console.Write("Введите номер карты: ");
       string cardNum = Console.ReadLine();
       Console.Write("Введите PIN-код: ");
@@ -21,11 +17,10 @@ namespace ATM_Simulator {
 
       if (!ATM.Instance.Login(cardNum, pin)) {
         Console.WriteLine("Доступ запрещён. Нажмите Enter для выхода...");
-        _ = Console.ReadLine();
+        _ = Console.ReadKey();
         return;
       }
 
-      // Основное меню
       bool exit = false;
       while (!exit) {
         Console.WriteLine("\n--- МЕНЮ ---\n" +
@@ -35,7 +30,34 @@ namespace ATM_Simulator {
                           "4. Перевести деньги\n" +
                           "5. Выйти");
         Console.Write("Выберите действие: ");
+
+        string choice = Console.ReadLine();
+
+        switch (choice) {
+          case "1":
+            ATM.Instance.ShowBalance();
+            break;
+          case "2":
+            ATM.Instance.Deposit();
+            break;
+          case "3":
+            ATM.Instance.Withdraw();
+            break;
+          case "4":
+            ATM.Instance.Transfer();
+            break;
+          case "5":
+            ATM.Instance.Logout();
+            exit = true;
+            Console.WriteLine("Спасибо за использование банкомата! =D");
+            break;
+          default:
+            Console.WriteLine("Неверный пункт меню.");
+            break;
+        }
       }
+
+      _ = Console.ReadKey();
     }
   }
 }
