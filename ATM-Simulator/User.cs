@@ -5,7 +5,6 @@
     public string PinCode { get; set; }
     public double Balance { get; set; }
 
-
     public User(string name, string cardNumber, string pinCode, double balance) {
       Name = name;
       CardNumber = cardNumber;

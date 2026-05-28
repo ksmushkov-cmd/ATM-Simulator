@@ -3,7 +3,9 @@
 namespace ATM_Simulator {
   public class Program {
     private static void Main() {
-      Console.WriteLine("СИМУЛЯЦИЯ БАНКОМАТА\n");
+
+      Console.WriteLine($"Добро пожаловать в {ATM.Instance.Name}!\n" +
+                         "СИМУЛЯЦИЯ БАНКОМАТА");
 
       ATM.Instance.Method1();
       ATM.Instance.Method2();

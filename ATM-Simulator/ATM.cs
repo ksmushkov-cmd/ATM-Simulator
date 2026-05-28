@@ -13,6 +13,8 @@ namespace ATM_Simulator {
       }
     }
 
+    public string Name { get; private set; }
+
     // Поля класса
     private readonly List<User> users;
     private User currentUser;
@@ -23,6 +25,8 @@ namespace ATM_Simulator {
       users.Add(new User("Кирилл", "85148852", "4321", 50000));
       users.Add(new User("Никита", "54325289", "5267", 30000));
       users.Add(new User("Паша", "65424671", "1488", 100000));
+
+      Name = "AuraCash";
     }
 
     public void Method1() {
